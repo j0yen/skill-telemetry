@@ -2,6 +2,24 @@
 
 > I have 14+ installed skills and no signal on which ones actually fire, which produce outcomes the user accepts, and which quietly rot.
 
+## Install
+
+### One-liner
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/j0yen/skill-telemetry/main/install.sh | bash
+```
+
+### Manual
+
+```sh
+git clone --depth 1 https://github.com/j0yen/skill-telemetry.git
+cd skill-telemetry
+./install.sh
+```
+
+Installs the `spool` binary via `cargo install --path . --locked`. Requires `cargo` / `rustc 1.85+` and `git`. Built binary lands in `~/.cargo/bin/`.
+
 ## Why
 
 I have 14+ installed skills and no signal on which ones actually fire, which produce outcomes the user accepts, and which quietly rot. Spool adds a tiny on-disk telemetry layer: each invocation appends one JSONL line per start and end event to a monthly bucket. Reports answer 'which skills did I use this week,' 'which are stale,' and (after backfill) 'which got redirected.' This slice ships Phase 0 + the read commands (rank/report --stale) so /self-review can consume telemetry next session.
